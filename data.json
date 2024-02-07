@@ -1,1 +1,14 @@
-{"messages":[{"senler":"user","text":"hello"},{"senler":"bot","text":"hello"},{"senler":"user","text":"asd"},{"senler":"user","text":"asdwsdf"}],"input_type":"text","language":"en"}
+{
+  "messages": [
+    {
+      "senler": "user",
+      "text": "hello"
+    },
+    {
+      "senler": "bot",
+      "text": "hello"
+    }
+  ],
+  "input_type": "text",
+  "language": "en"
+}
