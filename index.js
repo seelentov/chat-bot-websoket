@@ -10,7 +10,7 @@ const webSocketServer = new WebSocket.Server({ server })
 
 webSocketServer.on('connection', ws => {
 
-  ws.send(JSON.stringify({success: true}))
+  ws.send(JSON.stringify({ success: true }))
   console.log('user connected')
   const data = JSON.parse(fs.readFileSync("data.json", "binary"))
   webSocketServer.clients.forEach(client => client.send(JSON.stringify(data)))
@@ -54,15 +54,15 @@ webSocketServer.on('connection', ws => {
   })
 
   ws.on("error", e => {
-    ws.send(JSON.stringify({error: 'ws: error'}))
+    ws.send(JSON.stringify({ error: 'ws: error' }))
     console.log(e)
   })
 
-  ws.on('close', ()=>{
-  console.log('user disconnected')
+  ws.on('close', () => {
+    console.log('user disconnected')
   })
 })
 
-const PORT = 9898
+const PORT = process.env.PORT || 9898
 
 server.listen(PORT, () => console.log(`Server started ${PORT}`))
