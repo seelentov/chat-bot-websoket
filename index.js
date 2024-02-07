@@ -9,11 +9,9 @@ const server = http.createServer(app)
 const webSocketServer = new WebSocket.Server({ server })
 
 webSocketServer.on('connection', ws => {
-
-  ws.send(JSON.stringify({ success: true }))
-  console.log('user connected')
   const data = JSON.parse(fs.readFileSync("data.json", "binary"))
-  webSocketServer.clients.forEach(client => client.send(JSON.stringify(data)))
+  ws.send(JSON.stringify(data))
+  console.log('user connected')
 
   ws.on('message', m => {
     const data = JSON.parse(fs.readFileSync("data.json", "binary"))
